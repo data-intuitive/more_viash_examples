@@ -22,7 +22,22 @@ This component adds a script that calls `pandoc` and in the meantime
 also includes a custom `pandoc` yaml configuration file (`config.yaml`)
 for styling the output html file.
 
+### `knit`
+
+This component processes code blocks. It is derived from the
+[viash\_docs](https://github.com/data-intuitive/viash_docs/tree/master/examples/knit)
+examples.
+
 ## Illustration
+
+Create the `md` file using
+
+    viash run src/markdown_tools/knit/knit.vsh.yaml -- README.Rmd README.md --format github_document
+
+Or, you could test it out like this as well:
+
+    ENDPOINT="https://raw.githubusercontent.com/data-intuitive/more_viash_examples/main/src/markdown_tools/knit/knit.vsh.yaml"
+    viash run $ENDPOINT -- README.Rmd README.md --format github_document
 
 ``` sh
 pandoc -h

@@ -609,8 +609,17 @@ body {
 <p>A very simple component, a wrapper around <code>pandoc</code> that does not even define a custom script.</p>
 <h3 id="md2html2"><code>md2html2</code></h3>
 <p>This component adds a script that calls <code>pandoc</code> and in the meantime also includes a custom <code>pandoc</code> yaml configuration file (<code>config.yaml</code>) for styling the output html file.</p>
+<h3 id="knit"><code>knit</code></h3>
+<p>This component processes code blocks. It is derived from the <a href="https://github.com/data-intuitive/viash_docs/tree/master/examples/knit">viash_docs</a> examples.</p>
 <h2 id="illustration">Illustration</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">pandoc</span> -h</span></code></pre></div>
+<p>Create the <code>md</code> file using</p>
+<pre><code>viash run src/markdown_tools/knit/knit.vsh.yaml -- README.Rmd README.md --format github_document
+</code></pre>
+<p>Or, you could test it out like this as well:</p>
+<pre><code>ENDPOINT=&quot;https://raw.githubusercontent.com/data-intuitive/more_viash_examples/main/src/markdown_tools/knit/knit.vsh.yaml&quot;
+viash run $ENDPOINT -- README.Rmd README.md --format github_document
+</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">pandoc</span> -h</span></code></pre></div>
 <pre><code>## pandoc [OPTIONS] [FILES]
 ##   -f FORMAT, -r FORMAT  --from=FORMAT, --read=FORMAT                    
 ##   -t FORMAT, -w FORMAT  --to=FORMAT, --write=FORMAT                     
