@@ -1,0 +1,22 @@
+functionality:
+  name: md2html
+  arguments:
+    - name: "input"
+      type: file
+      required: true
+      must_exist: true
+      description: "Input file"
+    - name: "--output"
+      alternatives: [ "-o" ]
+      type: file
+      direction: output
+      required: true
+    - name: "-t"
+      type: string
+      required: false
+      default: html5
+  resources:
+    - type: executable
+      path: pandoc
+platforms:
+  - type: native

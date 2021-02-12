@@ -1,0 +1,22 @@
+functionality:
+  name: md2html2
+  arguments:
+    - name: "input"
+      type: file
+      required: true
+      must_exist: true
+      description: "Input file"
+    - name: "--output"
+      alternatives: [ "-o" ]
+      type: file
+      direction: output
+      required: true
+  resources:
+    - type: bash_script
+      path: script.sh
+    - type: file
+      path: config.yaml
+platforms:
+  - type: native
+  - type: docker
+    image: pandoc/ubuntu-latex
