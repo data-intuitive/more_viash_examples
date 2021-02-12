@@ -20,3 +20,5 @@ functionality:
       path: pandoc
 platforms:
   - type: native
+  - type: docker
+    image: pandoc/ubuntu-latex
