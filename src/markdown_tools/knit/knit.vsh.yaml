@@ -1,0 +1,35 @@
+functionality:
+  name: knit
+  description: "Convert an .Rmd file to a .md file"
+  arguments:
+  - name: "input"
+    type: file
+    direction: input
+    required: true
+    description: "Input .Rmd file"
+  - name: "output"
+    type: file
+    direction: output
+    default: "${VIASH_PAR_INPUT/Rmd/md}"
+    description: "Output .md file"
+  - name: "--format"
+    type: string
+    default: "md_document"
+    description: "The format to use for rendering the markdown. Possible values are, amongst others, 'md_document', 'github_document'. See `?rmarkdown::render` parameter `output_format` for more info."
+  resources:
+  - type: r_script
+    path: ./code.R
+platforms:
+- type: docker
+  image: rocker/tidyverse:4.0.2
+  target_image: dataintuitive/viash_docs
+  version: 0.2.1
+  setup_strategy: cachedbuild
+  r:
+    cran:
+    - blogdown
+  apt:
+    packages:
+    - libxtst6
+    - libxt6
+- type: native
