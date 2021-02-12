@@ -35,7 +35,9 @@ ENDPOINT="https://raw.githubusercontent.com/data-intuitive/more_viash_examples/m
 viash run $ENDPOINT -- README.Rmd README.md --format github_document
 ```
 
-```{sh}
+And then a little test if `knitr` works:
+
+```{sh echo=T, prompt=T, comment=""}
 pandoc -h
 ```
 
